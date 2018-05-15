@@ -1,0 +1,106 @@
+<cesium flex reference-frame="$ctrl.selectedReferenceFrame">
+    <create-cesium initial-dates="$ctrl.displayDates"></create-cesium>
+    <side-nav-content>
+        <section class="datepicker-parent" collapse-container>
+            <md-toolbar>
+                <h3 class="md-toolbar-tools" layout="row">
+                    Date Range
+                    <span flex></span>
+                    <collapse-trigger></collapse-trigger>
+                </h3>
+            </md-toolbar>
+            <collapse-target class="datepicker-parent">
+                <md-content class="datepicker-parent" layout="column" layout-padding>
+                    <date-range-picker
+                        available-min-date="$ctrl.availableDates.start"
+                        available-max-date="$ctrl.availableDates.end"
+                        display-min-date="$ctrl.displayDates.start"
+                        display-max-date="$ctrl.displayDates.end"
+                        on-change="$ctrl.onDateRangeChanged(start, end)"
+                    ></date-range-picker>
+                </md-content>
+            </collapse-target>
+        </section>
+
+        <section collapse-container>
+            <md-toolbar>
+                <h3 class="md-toolbar-tools">
+                    Controls
+                    <span flex></span>
+                    <collapse-trigger></collapse-trigger>
+                </h3>
+            </md-toolbar>
+            <collapse-target>
+                <md-content layout="column" layout-padding>
+
+                    <md-input-container>
+                        <label>Reference frame</label>
+                        <md-select ng-model="$ctrl.selectedReferenceFrame">
+                            <md-option value="planetary">Planetary</md-option>
+                            <md-option value="inertial">Inertial</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Spacecraft</label>
+                        <md-select ng-model="$ctrl.selectedSpacecraft">
+                            <md-option
+                                ng-repeat="sc_id in ['mms1', 'mms2', 'mms3', 'mms4']"
+                                value="{{sc_id}}">{{sc_id | uppercase}}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Orbit Path Color (1D Parameters)</label>
+                        <md-select
+                            ng-model="$ctrl.selectedParam1d"
+                            ng-change="$ctrl.showLegendButton()"
+                        >
+                            <md-option value="none">None</md-option>
+                            <md-option
+                                ng-repeat="param in $ctrl.params1d"
+                                ng-value="param.value"
+                            >{{param.display}}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-input-container>
+                        <label>Orbit Whiskers (3D Parameters)</label>
+                        <md-select
+                            ng-model="$ctrl.selectedParam3d"
+                            ng-change="$ctrl.showLegendButton()"
+                        >
+                            <md-option value="none">None</md-option>
+                            <md-option
+                                ng-repeat="param in $ctrl.params3d"
+                                ng-value="param.value"
+                            >{{param.display}}</md-option>
+                        </md-select>
+                    </md-input-container>
+
+                </md-content>
+            </collapse-target>
+        </section>
+    </side-nav-content>
+    <spacecraft-entities
+        timeframe="$ctrl.requestedDates"
+        selected-spacecraft="$ctrl.selectedSpacecraft"
+        selected-param-1d="$ctrl.selectedParam1d"
+        selected-param-3d="$ctrl.selectedParam3d"
+    ></spacecraft-entities>
+    <legend-content>
+        <legend selected-param-1d="$ctrl.selectedParam1d"
+                selected-param-3d="$ctrl.selectedParam3d"
+                params-1d="$ctrl.params1d"
+                params-3d="$ctrl.params3d">
+        </legend>
+    </legend-content>
+    <highstock-pane-content>
+        <highstock-pane
+            timeframe="$ctrl.requestedDates"
+            selected-spacecraft="$ctrl.selectedSpacecraft"
+            selected-param-1d="$ctrl.selectedParam1d"
+            selected-param-3d="$ctrl.selectedParam3d">
+        </highstock-pane>
+    </highstock-pane-content>
+</cesium>

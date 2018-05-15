@@ -1,0 +1,34 @@
+<ul>
+    <li>
+        <p class="legend-header">Legend</p>
+    </li>
+    <li ng-if="$ctrl.selectedParam1d !== 'none'">
+        <hr>
+        <p class="data-title">{{$ctrl.selectedParam1d + ' (' + $ctrl.selectedParam1dUnits + ')'}}</p>
+        <p class="min-max">
+            {{($ctrl.minOrbitColorParam || $ctrl.minOrbitColorParam === 0) ?
+            $ctrl.minOrbitColorParam : "No Data" | numLen:6:2}}
+        </p>
+        <div class="gradient-rect" ng-style="$ctrl.orbitPathGradient"></div>
+        <p class="min-max">
+            {{($ctrl.maxOrbitColorParam || $ctrl.maxOrbitColorParam === 0) ?
+            $ctrl.maxOrbitColorParam : "No Data" | numLen:6:2}}
+        </p>
+    </li>
+    <li ng-if="$ctrl.selectedParam3d !== 'none'">
+        <hr>
+        <p class="data-title">{{$ctrl.selectedParam3d + ' (' + $ctrl.selectedParam3dUnits + ')'}}</p>
+        <p class="min-max">
+            {{($ctrl.minWhiskerMagnitude || $ctrl.minWhiskerMagnitude === 0) ?
+            $ctrl.minWhiskerMagnitude : "No Data" | numLen:6:2}}
+        </p>
+        <div class="gradient-rect" ng-style="$ctrl.whiskerGradient">
+            <div class="gradient-triangle-cover"></div>
+        </div>
+        <p class="min-max">
+            {{($ctrl.maxWhiskerMagnitude || $ctrl.maxWhiskerMagnitude === 0) ?
+            $ctrl.maxWhiskerMagnitude : "No Data" | numLen:6:2}}
+        </p>
+        <p class="legend-note">(note: whisker lengths are log10 of their true magnitudes)</p>
+    </li>
+</ul>
