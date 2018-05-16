@@ -53,12 +53,12 @@ gulp clean // removes dist folder and any/all temporary folders
 * Globally-installed gulp: `sudo npm install -g gulp`
 
 ### Instructions for Deploying Beryllium-MMS
-	1. `cd beryllium-mms`
-	1. `npm install`
-			* This installs all node modules that are required for this application to run.
-	1. `bower install`
-			* This gathers beryllium from the Github repository.
-	1. `gulp serve`
+1. `cd beryllium-mms`
+1. `npm install`
+		1. This installs all node modules that are required for this application to run.
+1. `bower install`
+		1. This gathers beryllium from the Github repository.
+1. `gulp serve`
 
 ### FAQs and Help
 
