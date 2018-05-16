@@ -1,14 +1,5 @@
 # Beryllium-MMS
 
-### Contacts
-
-* **Product Owner:**
-	Kris Larsen
-* **Experienced Devs:**
-    * Fernando Sanchez
-    * Dylan Nguyen
-    * Hunter Leise
-
 ### Beryllium-MMS Summary
 
 Beryllium-MMS is an implementation of a Beryllium app, using the Beryllium library,
@@ -43,9 +34,7 @@ The following custom cesium-directives have been installed inside the `<cesium>`
 
 ### Build System
 
-We use a standard Gulp and Node build system for this project:
-	[Gulp](https://gulpjs.com/)
-	[Node](https://nodejs.org/en/)
+We use a standard [Gulp](https://gulpjs.com/) and [Node](https://nodejs.org/en/) build system for this project.
 
 ##### Task Cheatsheet
 
@@ -63,11 +52,13 @@ gulp clean // removes dist folder and any/all temporary folders
 * A recent-ish version of node & npm
 * Globally-installed gulp: `sudo npm install -g gulp`
 
-### Deploying Beryllium-MMS
-
-##### Requirements
-
-Nothing major, just make sure Kris Larsen is aware of production deployments.
+### Instructions for Deploying Beryllium-MMS
+	1. `cd beryllium-mms`
+	1. `npm install`
+			* This installs all node modules that are required for this application to run.
+	1. `bower install`
+			* This gathers beryllium from the Github repository.
+	1. `gulp serve`
 
 ### FAQs and Help
 
