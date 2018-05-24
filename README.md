@@ -64,7 +64,7 @@ gulp clean // removes dist folder and any/all temporary folders
 
 ##### Link to general LASP project faqs/help
 
-For questions, please contact LASP web team.
+For questions, please contact the LASP Web Application Development Team <web.support@lasp.colorado.edu>
 
 ##### Beryllium-MMS-specific common issues, gotchas
 
