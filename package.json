@@ -24,7 +24,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-minify-html": "^1.0.6",
     "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^6.0.1",
     "gulp-war": "^0.1.4",
     "gulp-zip": "^5.0.0",
     "request": "^2.88.0",
